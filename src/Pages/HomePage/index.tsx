@@ -1,8 +1,11 @@
+import Header from '@Components/Header'
 import React from 'react'
 
 const HomePage = () => {
   return (
-    <div>라우터 확인용</div>
+    <div>
+        <Header />
+    </div>
   )
 }
 
