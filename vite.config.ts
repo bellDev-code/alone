@@ -28,8 +28,8 @@ export default defineConfig({
         replacement: resolve(__dirname, 'src/Api'),
       },
       {
-        find: '@Config',
-        replacement: resolve(__dirname, '@Configure'),
+        find: '@Configure',
+        replacement: resolve(__dirname, 'src/Configure'),
       },
     ],
   },
