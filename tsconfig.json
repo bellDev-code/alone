@@ -26,7 +26,7 @@
       "@Pages/*": ["src/Pages/*"],
       "@Store/*": ["src/Store/*"],
       "@Api/*": ["src/Api/*"],
-      "@Configure/*": ["src/configure/*"],
+      "@Configure/*": ["src/Configure/*"],
       "@src": ["src/*"]
     }
   },
