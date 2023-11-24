@@ -1,9 +1,13 @@
 import { BaseButton } from '@Components/Button/BaseButton'
+import { toast } from '@Components/Toastify/Toastify';
+import { ROUTE_PATH } from '@Configure/constant';
 import usePlayerStore from '@Store/usePlayerStore'
 import React from 'react'
+import { useNavigate } from 'react-router-dom';
 
 const SinglePage = () => {
   const { username, setUsername, addPlayers, players } = usePlayerStore();
+  const navigate = useNavigate()
 
   const onChangeName = (event: React.ChangeEvent<HTMLInputElement>) => {
     setUsername(event.target.value)
@@ -17,10 +21,22 @@ const SinglePage = () => {
   };
 
   const addNames = () => {
+    if(username.length <= 1) {
+      toast('이름은 두 글자 이상으로 입력해주세요.')
+    }
+
     if(username.length > 1) {
       addPlayers()
     }
   }
+
+  const handleNext = () => {
+    const isButtonDisabled = players.length < 2;
+    
+    if (!isButtonDisabled) {
+      navigate(ROUTE_PATH.SINGLE_TYPE_PAGE);
+    }
+  };
 
   return (
     <div className='px-5'>
@@ -45,7 +61,7 @@ const SinglePage = () => {
         <div className='text-lg'>총 인원 : {players.length}</div>
       </div>
       <div className='flex justify-end'>
-        <BaseButton>다음</BaseButton>
+        <BaseButton disabled={players.length < 2} onClick={handleNext}>다음</BaseButton>
       </div>
     </div>
   )
