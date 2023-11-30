@@ -8,11 +8,10 @@ import { ROUTE_PATH } from "@Configure/constant"
 import SinglePage from "@Pages/SinglePage"
 import SingleTypePage from "@Pages/SingleTypePage"
 
-
-
 const App = () => {
   return (
     <>
+    
     <ToastContainer />
       <RootLayout>
           <Routes>
